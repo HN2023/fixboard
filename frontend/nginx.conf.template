@@ -21,6 +21,7 @@ server {
     # cluster DNS name. The trailing slash on proxy_pass strips /api/
     # before forwarding.
     location /api/ {
+        client_max_body_size 10m;
         proxy_pass ${BACKEND_UPSTREAM}/;
         proxy_http_version 1.1;
         proxy_set_header Host $host;
